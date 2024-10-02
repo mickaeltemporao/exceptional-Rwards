@@ -1,0 +1,12 @@
+Package: Rewards
+Type: Package
+Title: The `Rwards` package transforms the experience of learning R by turning errors into opportunities for growth and engagement, rewarding users with points or badges for mistakes.
+Version: 0.1.0
+Date: 2024-10-02
+Author: 
+    person("Alexandre Fortier-Chouinard", email = "alexandre.fortier.chouinard@mail.utoronto.ca", role = "aut"),
+    person("Mickael Temporào", email = "16172142+mickaeltemporao@users.noreply.github.com", role = "aut"),
+Maintainer: Who to complain to <yourfault@somewhere.net>  # TBD
+Description: The `Rwards` package is designed to transform the experience of learning R by turning errors into opportunities for growth and engagement. By rewarding users for making mistakes, this package aims to reduce the anxiety often associated with error messages and fosters a positive learning environment for newcomers. Users earn points or badges for each error encountered, encouraging exploration and experimentation without fear of failure. With built-in tips and helpful resources for troubleshooting common issues, `Rwards` empowers users to learn from their mistakes in a supportive and fun way.
+License: GPLv3
+
