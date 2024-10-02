@@ -61,15 +61,14 @@ evaluate_code <- function(expr) {
   )
 }
 
-.First <- function () {
-
-# Initialize a counter
-# Create an environment to store error types and points
-error_tracker <- new.env()
-error_tracker$error_types <- list()  # To track unique error messages
-error_tracker$points <- 0            # Total points
+test123 <- function () {
+# Create global environment to store error types and points
+error_tracker <<- new.env()
+error_tracker$error_types <<- list()  # To track unique error messages
+error_tracker$points <<- 0            # Total points
 
 # Set custom error/warning handlers
-options(error = evaluate_code, warn= evaluate_code)
-
+options(error = evaluate_code)
+message("Rwards ready to reward!")
 }
+

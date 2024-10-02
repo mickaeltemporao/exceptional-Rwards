@@ -5,7 +5,8 @@ Title: The `Rwards` package transforms the experience of learning R by turning e
 Authors@R: c(
   person("Alexandre Fortier-Chouinard", "Developer", role = "aut"),
   person("Mickael Temporao", "Developer", role = "aut"))
-Author: Alexandre [aut],
+Author: 
+  Alexandre [aut],
   Mickael [aut]
 Maintainer: Who to complain to <yourfault@somewhere.net>
 Depends: R (>= 4.1.0)
