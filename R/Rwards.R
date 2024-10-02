@@ -61,7 +61,7 @@ evaluate_code <- function(expr) {
   )
 }
 
-test123 <- function () {
+.onLoad <- function(libname, pkgname) {
 # Create global environment to store error types and points
 error_tracker <<- new.env()
 error_tracker$error_types <<- list()  # To track unique error messages
@@ -71,4 +71,3 @@ error_tracker$points <<- 0            # Total points
 options(error = evaluate_code)
 message("Rwards ready to reward!")
 }
-
