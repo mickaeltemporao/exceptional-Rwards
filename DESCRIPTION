@@ -1,4 +1,4 @@
-Package: Rewards
+Package: Rwards
 Type: Package
 Title: The `Rwards` package transforms the experience of learning R by turning errors into opportunities for growth and engagement, rewarding users with points or badges for mistakes.
 Version: 0.1.0
