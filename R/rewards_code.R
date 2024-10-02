@@ -1,8 +1,19 @@
+
 # Load the necessary package
 if (!requireNamespace("crayon", quietly = TRUE)) {
   install.packages("crayon")
 }
 library(crayon)
+
+# Use First last functions ?
+.First <-
+function () 
+{
+}
+.Last <-
+function () 
+{
+}
 
 # Create an environment to store error types and points
 error_tracker <- new.env()
@@ -75,4 +86,5 @@ evaluate_code <- function(expr) {
 evaluate_code(quote(log("a")))
 evaluate_code("lol"+TRUE) # test with another type of error
 
-## Next step: remove the need to use evaluate_code
+# TODO: remove the need to use evaluate_code
+
