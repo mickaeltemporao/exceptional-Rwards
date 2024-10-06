@@ -1,14 +1,3 @@
-# Load the necessary package
-if (!requireNamespace("crayon", quietly = TRUE)) {
-  install.packages("crayon")
-}
-library(crayon)
-
-# Create an environment to store error types and points
-error_tracker <- new.env()
-error_tracker$error_types <- list()  # To track unique error messages
-error_tracker$points <- 0            # Total points
-
 # Function to handle errors
 error_handler <- function(e) {
   # Error message
@@ -24,17 +13,17 @@ error_handler <- function(e) {
 
   # Assign the color based on points
   color_func <- if (error_tracker$points >= 500) {
-    red
+    crayon::red
   } else if (error_tracker$points >= 250) {
-    magenta
+    crayon::magenta
   } else if (error_tracker$points >= 100) {
-    blue
+    crayon::blue
   } else if (error_tracker$points >= 50) {
-    green
+    crayon::green
   } else if (error_tracker$points >= 20) {
-    yellow
+    crayon::yellow
   } else {
-    silver
+    crayon::silver
   }
 
   # Create a positive message
@@ -72,7 +61,19 @@ evaluate_code <- function(expr) {
   )
 }
 
-evaluate_code(quote(log("a")))
-evaluate_code("lol"+TRUE) # test with another type of error
+.onLoad <- function(libname, pkgname) {
+  # Create global environment to store error types and points
+  error_tracker <<- new.env()
+  error_tracker$error_types <<- list()  # To track unique error messages
+  error_tracker$points <<- 0            # Total points
 
-## Next step: remove the need to use evaluate_code
+  # Set custom error handler that doesn't require eval
+  options(error = function() {
+    # Capture the last error
+    e <- geterrmessage()
+    # Call the error handler with the captured error
+    error_handler(simpleError(e))
+  })
+  
+  message("Rwards ready to reward!")
+}
