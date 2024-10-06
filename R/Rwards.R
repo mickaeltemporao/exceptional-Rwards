@@ -62,12 +62,18 @@ evaluate_code <- function(expr) {
 }
 
 .onLoad <- function(libname, pkgname) {
-# Create global environment to store error types and points
-error_tracker <<- new.env()
-error_tracker$error_types <<- list()  # To track unique error messages
-error_tracker$points <<- 0            # Total points
+  # Create global environment to store error types and points
+  error_tracker <<- new.env()
+  error_tracker$error_types <<- list()  # To track unique error messages
+  error_tracker$points <<- 0            # Total points
 
-# Set custom error/warning handlers
-options(error = evaluate_code)
-message("Rwards ready to reward!")
+  # Set custom error handler that doesn't require eval
+  options(error = function() {
+    # Capture the last error
+    e <- geterrmessage()
+    # Call the error handler with the captured error
+    error_handler(simpleError(e))
+  })
+  
+  message("Rwards ready to reward!")
 }
