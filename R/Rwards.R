@@ -11,6 +11,9 @@ error_handler <- function(e) {
     error_tracker$points <- error_tracker$points + 1     # Add 1 point for a recurring error
   }
 
+  # Update progress bar based on points
+  update_progress_bar()
+  
   # Assign the color based on points
   color_func <- if (error_tracker$points >= 500) {
     crayon::red
@@ -45,12 +48,30 @@ error_handler <- function(e) {
   }
   
   # Print the message in the selected color
-  message(color_func(paste("Error detected:", error_message)))
+  message(color_func(paste("\nError detected:", error_message)))
   message(color_func(paste("Points:", error_tracker$points)))
   message(color_func(message))
   
   # Return the original error for normal propagation
   return(e)
+}
+
+# Initialize the progress bar
+initialize_progress_bar <- function() {
+  error_tracker$progress <- progress::progress_bar$new(
+    format = "Progress [:bar] :percent Points: :points",
+    total = error_tracker$goal,  # Set the goal for the total progress
+    clear = FALSE, width = 60
+  )
+}
+
+# Update progress bar
+update_progress_bar <- function() {
+  points <- error_tracker$points
+  if (points > error_tracker$goal) {
+    points <- error_tracker$goal  # Ensure progress doesn't go beyond the goal
+  }
+  error_tracker$progress$tick(tokens = list(points = error_tracker$points))
 }
 
 # Function to evaluate code and catch errors
@@ -66,7 +87,11 @@ evaluate_code <- function(expr) {
   error_tracker <<- new.env()
   error_tracker$error_types <<- list()  # To track unique error messages
   error_tracker$points <<- 0            # Total points
-
+  error_tracker$goal <<- 500            # Set a goal for total points
+  
+  # Initialize progress bar when the package loads
+  initialize_progress_bar()
+  
   # Set custom error handler that doesn't require eval
   options(error = function() {
     # Capture the last error
