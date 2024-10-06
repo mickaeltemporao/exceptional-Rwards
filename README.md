@@ -8,7 +8,7 @@ The `Rwards` package is designed to transform the experience of learning R by tu
 - [ ] Add a sense of progression/levels/gratification (novice, amateur, ..., bugmaster)
 - [ ] Keep track of points between sessions? sort of a cache?
 - [ ] Only green messages ? 
-- [ ] Change error_tracker to progress tracker or exp (stay positive)
+- [x] Change error_tracker to progress tracker or exp (stay positive)
 - [ ] Put .onLoad inside zzz.R
 
 ## Getting Started
