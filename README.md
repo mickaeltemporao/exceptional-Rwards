@@ -9,10 +9,11 @@ The `Rwards` package is designed to transform the experience of learning R by tu
 - [ ] Keep track of points between sessions? sort of a cache?
 - [ ] Only green messages ? 
 - [x] Change error_tracker to progress tracker or exp (stay positive)
+- [ ] Couleur (pride color palette) pour découvrir une nouvelle erreur? 
 - [ ] Put .onLoad inside zzz.R
+- [ ] Minimal doc
 - [ ] Contributor Guidelines
-- [ ] minimal doc
-- [ ] cran sub
+- [ ] mvp for cran sub
 
 ## Getting Started
 
