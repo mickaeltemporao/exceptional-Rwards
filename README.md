@@ -4,11 +4,12 @@ The `Rwards` package is designed to transform the experience of learning R by tu
 
 ## TODO
 - [x] Remove need to use evaluate_code
-- [ ] Add language (en/fr/de/...) option
-- [ ] Add a sense of progression/levels/gratification (novice, amateur, ..., bugmaster)
-- [ ] Keep track of points between sessions? sort of a cache?
-- [ ] Only green messages ? 
 - [x] Change error_tracker to progress tracker or exp (stay positive)
+- [ ] Add language (en/fr/de/...) option
+- [ ] Add a sense of progression/level-up as a gratification mechanism (eg. novice, amateur, ..., bugmaster)
+- [ ] Keep track of points between sessions? sort of a cache?
+- [ ] Remove redundant text in error message.
+- [ ] Show progress until next level?
 - [ ] Couleur (pride color palette) pour découvrir une nouvelle erreur? 
 - [ ] Put .onLoad inside zzz.R
 - [ ] Minimal doc
