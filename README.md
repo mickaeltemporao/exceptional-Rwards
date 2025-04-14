@@ -4,6 +4,7 @@ The `Rwards` package is designed to transform the experience of learning R by tu
 
 ## TODO
 - [x] Remove need to use evaluate_code
+- [ ] pride_colour color palette: new color when new error discovered
 - [ ] Add language (en/fr/de/...) option
 - [ ] Add a sense of progression/levels/gratification (novice, amateur, ..., bugmaster)
 - [ ] Keep track of points between sessions? sort of a cache?
