@@ -57,3 +57,24 @@ trythis
 - System Phantom – You rewrite the rules mid-game. Legends talk about your moves.
 - The Rootwalker – You’ve got god-level access. The system doesn’t control you—you control it.
 
+## XP Progression Tables
+
+- We can attribute 50XP per error/exception with new errors worth 3x (150xp)
+- Factor of x2.25 xp required from previous level
+
+| Level | XP for LvL | Total XP |
+| ----- | ---------- | -------- |
+| 01    | 500        | 500      |
+| 02    | 1125       | 1625     |
+| 03    | 2250       | 3875     |
+| 04    | 5000       | 8875     |
+| 05    | 10150      | 19025    |
+| 06    | 14625      | 33650    |
+| 07    | 19125      | 52775    |
+| 08    | 22500      | 75275    |
+| 09    | 33750      | 109025   |
+| 10    | 45000      | 154025   |
+
+Assuiming an average of 50xp per error, this exponential experience curve 
+would require ~3000 errors to reach Levels 10. (Inspired by D2 level curve)
+
