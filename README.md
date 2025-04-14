@@ -10,6 +10,9 @@ The `Rwards` package is designed to transform the experience of learning R by tu
 - [ ] Only green messages ? 
 - [x] Change error_tracker to progress tracker or exp (stay positive)
 - [ ] Put .onLoad inside zzz.R
+- [ ] Contributor Guidelines
+- [ ] minimal doc
+- [ ] cran sub
 
 ## Getting Started
 
