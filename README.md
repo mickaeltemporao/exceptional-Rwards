@@ -19,8 +19,17 @@ The `Rwards` package is designed to transform the experience of learning R by tu
 
 ## Getting Started
 
+
+To develop without having to install.
+```r 
+devtools::load_all()
+trythis
+```
+
+To install.
 ```r
 devtools::install("Rwards")
 library(Rwards)
 trythis
 ```
+
