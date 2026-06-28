@@ -10,6 +10,9 @@ Author:
   Mickael [aut]
 Maintainer: Who to complain to <yourfault@somewhere.net>
 Depends: R (>= 4.1.0)
+Imports: crayon, progress
+Suggests: testthat (>= 3.0.0)
+Config/testthat/edition: 3
 Description: The `Rwards` package is designed to transform the experience of
   learning R by turning errors into opportunities for growth and engagement. By
   rewarding users for making mistakes, this package aims to reduce the anxiety

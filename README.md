@@ -7,10 +7,10 @@ The `Rwards` package is designed to transform the experience of learning R by tu
 - [x] Change error_tracker to progress tracker or exp (stay positive)
 - [ ] pride_colour color palette: new color when new error discovered
 - [ ] Add language (en/fr/de/...) option
-- [ ] Add a sense of progression/level-up as a gratification mechanism (eg. novice, amateur, ..., bugmaster)
-- [ ] Keep track of points between sessions? sort of a cache?
+- [x] Add a sense of progression/level-up as a gratification mechanism (eg. novice, amateur, ..., bugmaster)
+- [x] Keep track of points between sessions? sort of a cache?
 - [ ] Remove redundant text in error message.
-- [ ] Show progress until next level?
+- [x] Show progress until next level?
 - [ ] Couleur (pride color palette) pour découvrir une nouvelle erreur? 
 - [ ] Put .onLoad inside zzz.R
 - [ ] Minimal doc
@@ -32,4 +32,8 @@ devtools::install("Rwards")
 library(Rwards)
 trythis
 ```
+
+## AI Acknowledgement
+
+The development of some features and tests in this package were accelerated with the assistance of an AI coding assistant.
 
