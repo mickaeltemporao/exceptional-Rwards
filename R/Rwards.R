@@ -1,3 +1,5 @@
+error_tracker <- new.env(parent = emptyenv())
+
 # Cache functions
 get_cache_dir <- function() {
   tools::R_user_dir("Rwards", which = "data")
@@ -130,9 +132,6 @@ evaluate_code <- function(expr) {
 }
 
 .onLoad <- function(libname, pkgname) {
-  # Create global environment to store error types and points
-  error_tracker <<- new.env()
-  
   # Load saved progress
   load_progress()
   

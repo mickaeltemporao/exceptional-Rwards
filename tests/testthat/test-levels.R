@@ -29,31 +29,24 @@ test_that("Level XP and titles are calculated correctly", {
 })
 
 test_that("XP tracking increments correctly", {
-  # Set up a new isolated environment to mock the global one
-  old_tracker <- Rwards:::error_tracker
+  old_points <- error_tracker$points
+  old_types <- error_tracker$error_types
   
-  # Mock the tracker
-  mock_tracker <- new.env()
-  mock_tracker$error_types <- list()
-  mock_tracker$points <- 0
-  
-  # Inject mock tracker (using assignInNamespace to override temporarily if needed, 
-  # or simply knowing error_handler handles the global one. For a true unit test 
-  # it's best to mock, but since the package uses a global env, we can just reset it)
-  
-  Rwards:::error_tracker$error_types <- list()
-  Rwards:::error_tracker$points <- 0
+  error_tracker$error_types <- list()
+  error_tracker$points <- 0
   
   # Simulate first new error
   e1 <- simpleError("First test error")
-  Rwards:::error_handler(e1)
-  expect_equal(Rwards:::error_tracker$points, 150)
+  
+  # Use suppressMessages because error_handler calls message()
+  suppressMessages(error_handler(e1))
+  expect_equal(error_tracker$points, 150)
   
   # Simulate same error again
-  Rwards:::error_handler(e1)
-  expect_equal(Rwards:::error_tracker$points, 200) # 150 + 50
+  suppressMessages(error_handler(e1))
+  expect_equal(error_tracker$points, 200) # 150 + 50
   
   # Restore
-  Rwards:::error_tracker$error_types <- old_tracker$error_types
-  Rwards:::error_tracker$points <- old_tracker$points
+  error_tracker$error_types <- old_types
+  error_tracker$points <- old_points
 })
