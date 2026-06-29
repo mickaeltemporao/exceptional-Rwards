@@ -1,17 +1,16 @@
 # Rwards
 
-The `Rwards` package is designed to transform the experience of learning R by turning errors into opportunities for growth and engagement. By rewarding users for making mistakes, this package aims to reduce the anxiety often associated with error messages and fosters a positive learning environment for newcomers. Users earn points or badges for each error encountered, encouraging exploration and experimentation without fear of failure. With built-in tips and helpful resources for troubleshooting common issues, `Rwards` empowers users to learn from their mistakes in a supportive and fun way.
+The `Rwards` package turns R errors into opportunities for growth and engagement. Instead of dreading error messages, you earn **XP** for every error you hit — and **3× XP** the first time you encounter a new one. As your XP grows you climb **levels with playful titles** (Novice → Mastermind, or a `cyberpunk` theme: Wired Rookie → The Rootwalker), with a **progress bar** toward the next level and an encouraging message on every error. Your progress is **saved across R sessions**, so the goal is simple: take the anxiety out of mistakes and make learning R supportive and fun for newcomers.
 
 ## TODO
 - [x] Remove need to use evaluate_code
 - [x] Change error_tracker to progress tracker or exp (stay positive)
+- [x] Add a sense of progression/level-up as a gratification mechanism (eg. novice, amateur, ..., bugmaster)
+- [x] Keep track of points between sessions? sort of a cache?
+- [x] Show progress until next level?
 - [ ] pride_colour color palette: new color when new error discovered
 - [ ] Add language (en/fr/de/...) option
-- [ ] Add a sense of progression/level-up as a gratification mechanism (eg. novice, amateur, ..., bugmaster)
-- [ ] Keep track of points between sessions? sort of a cache?
 - [ ] Remove redundant text in error message.
-- [ ] Show progress until next level?
-- [ ] Couleur (pride color palette) pour découvrir une nouvelle erreur? 
 - [ ] Put .onLoad inside zzz.R
 - [ ] Minimal doc
 - [ ] Contributor Guidelines
@@ -20,16 +19,28 @@ The `Rwards` package is designed to transform the experience of learning R by tu
 ## Getting Started
 
 
-To develop without having to install.
-```r 
+To develop without having to install:
+```r
 devtools::load_all()
-trythis
+
+# Trigger any error and watch your XP grow:
+sqrt("a")
 ```
 
-To install.
+To install from GitHub:
 ```r
-devtools::install("Rwards")
+devtools::install_github("mickaeltemporao/exceptional-Rwards")
 library(Rwards)
-trythis
+
+sqrt("a")
 ```
+
+Prefer a cyberpunk flavour of level titles? Set this option (before or after loading):
+```r
+options(Rwards.theme = "cyberpunk")
+```
+
+## AI Acknowledgement
+
+The development of some features and tests in this package were accelerated with the assistance of an AI coding assistant.
 
