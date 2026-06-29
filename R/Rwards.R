@@ -138,21 +138,29 @@ evaluate_code <- function(expr) {
   )
 }
 
-.onLoad <- function(libname, pkgname) {
-  # Load saved progress
+# Activation happens in .onAttach (i.e. when the user runs library(Rwards)), not
+# .onLoad, so merely importing the namespace never touches global session state.
+# The user's previous error handler is saved here and restored in .onDetach, so
+# Rwards leaves the global state exactly as it found it -- which is what CRAN
+# requires of packages that modify session-wide settings.
+.onAttach <- function(libname, pkgname) {
+  # Load saved progress and prepare the progress bar
   load_progress()
-  
-  # Initialize progress bar
-  info <- get_level_info(error_tracker$points)
-  initialize_progress_bar(info)
-  
-  # Set custom error handler that doesn't require eval
+  initialize_progress_bar(get_level_info(error_tracker$points))
+
+  # Install our error handler, remembering the user's previous one
+  error_tracker$prev_error_option <- getOption("error")
   options(error = function() {
-    # Capture the last error
-    e <- geterrmessage()
-    # Call the error handler with the captured error
-    error_handler(simpleError(e))
+    # Capture the last error and hand it to the gamification layer
+    error_handler(simpleError(geterrmessage()))
   })
-  
-  message("Rwards ready to reward! Set 'options(Rwards.theme = \"cyberpunk\")' for a different flavor.")
+
+  packageStartupMessage(
+    "Rwards ready to reward! Set 'options(Rwards.theme = \"cyberpunk\")' for a different flavor."
+  )
+}
+
+.onDetach <- function(libpath) {
+  # Restore the error handler that was in place before Rwards was attached
+  options(error = error_tracker$prev_error_option)
 }
