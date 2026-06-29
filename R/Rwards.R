@@ -43,7 +43,11 @@ save_progress <- function() {
 }
 
 # Function to handle errors
-error_handler <- function(e) {
+# `reprint`: when TRUE the handler prints the error itself. This is only needed
+# for the evaluate_code() path, where tryCatch swallows the error and R never
+# prints it. In the options(error=) path R has already printed the native error
+# before this runs, so reprinting would show every error twice.
+error_handler <- function(e, reprint = FALSE) {
   # Error message
   error_message <- conditionMessage(e)
   
@@ -71,8 +75,10 @@ error_handler <- function(e) {
   
   update_progress_bar(info_after)
   
-  # Print the error details first
-  message(crayon::red(paste("\nError detected:", error_message)))
+  # Print the error details first (only when R hasn't already done so)
+  if (reprint) {
+    message(crayon::red(paste("\nError detected:", error_message)))
+  }
   
   # Level up announcement or positive message
   if (info_after$level > info_before$level) {
@@ -97,9 +103,10 @@ initialize_progress_bar <- function(info) {
   if (total_xp_for_level <= 0) total_xp_for_level <- 1 # safety
   
   error_tracker$progress <- progress::progress_bar$new(
-    format = sprintf("[Level %d: %s] Progress to next level: [:bar] :percent XP: :current_xp/:total_xp", info$level, info$title),
+    format = sprintf("[Level %d: %s] Progress to next level: [:bar] :percent XP: :xp_current/:xp_total", info$level, info$title),
     total = total_xp_for_level,
-    clear = FALSE, width = 80
+    clear = FALSE, width = 80,
+    show_after = 0, force = TRUE
   )
 }
 
@@ -117,8 +124,8 @@ update_progress_bar <- function(info) {
   error_tracker$progress$update(
     ratio = current_xp_in_level / total_xp_for_level,
     tokens = list(
-      current_xp = current_xp_in_level,
-      total_xp = total_xp_for_level
+      xp_current = current_xp_in_level,
+      xp_total = total_xp_for_level
     )
   )
 }
@@ -127,7 +134,7 @@ update_progress_bar <- function(info) {
 evaluate_code <- function(expr) {
   tryCatch(
     eval(expr),
-    error = error_handler
+    error = function(e) error_handler(e, reprint = TRUE)
   )
 }
 
