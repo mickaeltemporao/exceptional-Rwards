@@ -1,9 +1,9 @@
-# Progress Levels?
+# Progress Levels
 
 ## XP Progression Tables
 
-- We can attribute 50XP per error/exception with new errors worth 3x (150xp)
-- Factor of x2.25 XP required from previous level
+- We attribute 50 XP per error/exception, with new (unique) errors worth 3x (150 XP)
+- XP required per level is not a fixed multiple — it ramps up steeply early (~2.25x at first) and eases off at higher levels, mirroring the Diablo 2 curve
 
 | Level | XP for LvL | Total XP |
 | ----- | ---------- | -------- |
@@ -18,7 +18,7 @@
 | 09    | 33750      | 109025   |
 | 10    | 45000      | 154025   |
 
-Assuiming an average of 50xp per error, this experience curve requires ~3000 errors to reach Levels 10. 
+Assuming an average of 50 XP per error, this experience curve requires ~3000 errors to reach Level 10. 
 - Of course, this is inspired by the D2 leveling-up curve...
 
 ### Basic Levels
