@@ -43,7 +43,11 @@ save_progress <- function() {
 }
 
 # Function to handle errors
-error_handler <- function(e) {
+# `reprint`: when TRUE the handler prints the error itself. This is only needed
+# for the evaluate_code() path, where tryCatch swallows the error and R never
+# prints it. In the options(error=) path R has already printed the native error
+# before this runs, so reprinting would show every error twice.
+error_handler <- function(e, reprint = FALSE) {
   # Error message
   error_message <- conditionMessage(e)
   
@@ -71,8 +75,10 @@ error_handler <- function(e) {
   
   update_progress_bar(info_after)
   
-  # Print the error details first
-  message(crayon::red(paste("\nError detected:", error_message)))
+  # Print the error details first (only when R hasn't already done so)
+  if (reprint) {
+    message(crayon::red(paste("\nError detected:", error_message)))
+  }
   
   # Level up announcement or positive message
   if (info_after$level > info_before$level) {
@@ -97,9 +103,10 @@ initialize_progress_bar <- function(info) {
   if (total_xp_for_level <= 0) total_xp_for_level <- 1 # safety
   
   error_tracker$progress <- progress::progress_bar$new(
-    format = sprintf("[Level %d: %s] Progress to next level: [:bar] :percent XP: :current_xp/:total_xp", info$level, info$title),
+    format = sprintf("[Level %d: %s] Progress to next level: [:bar] :percent XP: :xp_current/:xp_total", info$level, info$title),
     total = total_xp_for_level,
-    clear = FALSE, width = 80
+    clear = FALSE, width = 80,
+    show_after = 0, force = TRUE
   )
 }
 
@@ -117,8 +124,8 @@ update_progress_bar <- function(info) {
   error_tracker$progress$update(
     ratio = current_xp_in_level / total_xp_for_level,
     tokens = list(
-      current_xp = current_xp_in_level,
-      total_xp = total_xp_for_level
+      xp_current = current_xp_in_level,
+      xp_total = total_xp_for_level
     )
   )
 }
@@ -127,25 +134,33 @@ update_progress_bar <- function(info) {
 evaluate_code <- function(expr) {
   tryCatch(
     eval(expr),
-    error = error_handler
+    error = function(e) error_handler(e, reprint = TRUE)
   )
 }
 
-.onLoad <- function(libname, pkgname) {
-  # Load saved progress
+# Activation happens in .onAttach (i.e. when the user runs library(Rwards)), not
+# .onLoad, so merely importing the namespace never touches global session state.
+# The user's previous error handler is saved here and restored in .onDetach, so
+# Rwards leaves the global state exactly as it found it -- which is what CRAN
+# requires of packages that modify session-wide settings.
+.onAttach <- function(libname, pkgname) {
+  # Load saved progress and prepare the progress bar
   load_progress()
-  
-  # Initialize progress bar
-  info <- get_level_info(error_tracker$points)
-  initialize_progress_bar(info)
-  
-  # Set custom error handler that doesn't require eval
+  initialize_progress_bar(get_level_info(error_tracker$points))
+
+  # Install our error handler, remembering the user's previous one
+  error_tracker$prev_error_option <- getOption("error")
   options(error = function() {
-    # Capture the last error
-    e <- geterrmessage()
-    # Call the error handler with the captured error
-    error_handler(simpleError(e))
+    # Capture the last error and hand it to the gamification layer
+    error_handler(simpleError(geterrmessage()))
   })
-  
-  message("Rwards ready to reward! Set 'options(Rwards.theme = \"cyberpunk\")' for a different flavor.")
+
+  packageStartupMessage(
+    "Rwards ready to reward! Set 'options(Rwards.theme = \"cyberpunk\")' for a different flavor."
+  )
+}
+
+.onDetach <- function(libpath) {
+  # Restore the error handler that was in place before Rwards was attached
+  options(error = error_tracker$prev_error_option)
 }
