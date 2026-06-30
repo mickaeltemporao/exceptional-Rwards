@@ -1,6 +1,6 @@
 # Rwards
 
-The `Rwards` package turns R errors into opportunities for growth and engagement. Instead of dreading error messages, you earn **XP** for every error you hit — and **3× XP** the first time you encounter a new one. As your XP grows you climb **levels with playful titles** (Novice → Mastermind, or a `cyberpunk` theme: Wired Rookie → The Rootwalker), with a **progress bar** toward the next level and an encouraging message on every error. Your progress is **saved across R sessions**, so the goal is simple: take the anxiety out of mistakes and make learning R supportive and fun for newcomers.
+The `Rwards` package turns R errors into opportunities for growth. Instead of dreading error messages, you earn **XP** for every error you hit, with **3x XP** the first time you encounter a new error. As your XP grows, you climb **levels with playful titles** (Novice to Mastermind, or a cyberpunk theme: Wired Rookie to The Rootwalker), showing a **progress bar** toward the next level and an encouraging message on every error. Your progress is **saved across R sessions**, making learning R supportive and fun.
 
 ## TODO
 - [x] Remove need to use evaluate_code
@@ -8,13 +8,13 @@ The `Rwards` package turns R errors into opportunities for growth and engagement
 - [x] Add a sense of progression/level-up as a gratification mechanism (eg. novice, amateur, ..., bugmaster)
 - [x] Keep track of points between sessions? sort of a cache?
 - [x] Show progress until next level?
+- [x] Remove redundant text in error message
+- [x] Minimal doc
+- [x] mvp for cran sub
 - [ ] pride_colour color palette: new color when new error discovered
 - [ ] Add language (en/fr/de/...) option
-- [ ] Remove redundant text in error message.
-- [ ] Put .onLoad inside zzz.R
-- [ ] Minimal doc
+- [ ] Put .onLoad (or .onAttach) inside zzz.R
 - [ ] Contributor Guidelines
-- [ ] mvp for cran sub
 
 ## Getting Started
 
