@@ -1,6 +1,6 @@
 # Rwards
 
-The `Rwards` package turns R errors into opportunities for growth and engagement. Instead of dreading error messages, you earn **XP** for every error you hit --- and even more the first time you encounter a new one. As your XP grows you climb **levels with playful titles** (Novice → Mastermind, or a `cyberpunk` theme: Wired Rookie → The Rootwalker), with a **progress bar** toward the next level and an encouraging message on every error. Your progress is **saved across R sessions**, so the goal is simple: take the anxiety out of mistakes and make learning R supportive and fun for newcomers.
+The `Rwards` package turns R errors into opportunities for growth and engagement. Instead of dreading error messages, you earn **XP** for every error you hit and you get a bonus the first time you encounter a new exception. As your XP grows you climb **levels with playful titles**, with a **progress bar** toward the next level and an encouraging message on every error. Your progress is **saved across R sessions**, so the goal is simple: take the anxiety out of mistakes and make learning R supportive and fun for newcomers.
 
 ## Getting Started
 
@@ -25,6 +25,10 @@ Prefer a cyberpunk flavour of level titles? Set this option (before or after loa
 ```r
 options(Rwards.theme = "cyberpunk")
 ```
+
+## Contributing
+
+Contributions are very welcome! Whether it's adding new features, expanding translations, or designing new themes, we'd love your help to make learning R more fun. Please see our [Contributing Guidelines](CONTRIBUTING.md) for more details.
 
 ## AI Acknowledgement
 
