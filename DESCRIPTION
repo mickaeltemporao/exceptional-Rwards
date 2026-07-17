@@ -5,12 +5,11 @@ Authors@R: c(
     person("Alexandre", "Fortier-Chouinard", role = "aut"),
     person("Mickael", "Temporão", role = c("aut", "cre", "cph"),
            email = "m.temporao@sciencespobordeaux.fr"))
-Description: The `Rwards` package is designed to transform the learning
-    experience of a programming language by rewarding users for making mistakes.
-    The goal is to take the anxiety out of error messages and make learning
-    programming more engaging for newcomers. Users earn points for each error
-    encountered, encouraging exploration and experimentation without fear of
-    failure. Progress is cached across sessions. 
+Description: Transforms the learning experience of a programming language by
+    rewarding users for making mistakes. The goal is to take the anxiety out of
+    error messages and make learning programming more engaging for newcomers.
+    Users earn points for each error encountered, encouraging exploration and
+    experimentation without fear of failure. Progress is cached across sessions.
 Depends: R (>= 4.1.0)
 Imports: crayon, progress
 Suggests: testthat (>= 3.0.0)
