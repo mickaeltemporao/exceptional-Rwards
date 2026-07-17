@@ -27,6 +27,10 @@ Prefer a cyberpunk flavour of level titles? Set this option (before or after loa
 options(Rwards.theme = "cyberpunk")
 ```
 
+## Contributing
+
+Contributions are very welcome! Whether it's adding new features, expanding translations, or designing new themes, we'd love your help to make learning R more fun. Please see our [Contributing Guidelines](CONTRIBUTING.md) for more details.
+
 ## AI Acknowledgement
 
 The development of some features and tests in this package were accelerated with the assistance of an AI coding assistant.
