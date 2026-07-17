@@ -1,6 +1,6 @@
 Package: Rwards
 Version: 0.1.0
-Title: Rwards - Rewarding New Programmers for Making Mistakes
+Title: Rewarding New Programmers for Making Mistakes
 Authors@R: c(
     person("Alexandre", "Fortier-Chouinard", role = "aut"),
     person("Mickael", "Temporão", role = c("aut", "cre", "cph"),
