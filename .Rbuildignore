@@ -2,3 +2,5 @@
 ^\.Rproj\.user$
 ^levels\.md$
 ^pr_body\.md$
+^\.github$
+^cran-comments\.md$
