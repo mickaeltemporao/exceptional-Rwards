@@ -130,7 +130,26 @@ update_progress_bar <- function(info) {
   )
 }
 
-# Function to evaluate code and catch errors
+#' Evaluate Code and Reward Errors
+#'
+#' Evaluate an R expression, turning any error it raises into experience
+#' points. This is a legacy helper: once the package is attached with
+#' `library(Rwards)` the installed error handler rewards errors
+#' automatically, so `evaluate_code()` is rarely needed.
+#'
+#' @param expr An unevaluated R expression (for example one produced by
+#'   [quote()]) to evaluate.
+#'
+#' @return The value of `expr`. If evaluating `expr` raises an error, the
+#'   error is turned into experience points (with a level / progress-bar
+#'   update) and the captured error condition is returned invisibly instead
+#'   of being signalled.
+#'
+#' @examples
+#' # A successful expression is returned as usual
+#' evaluate_code(quote(1 + 1))
+#'
+#' @export
 evaluate_code <- function(expr) {
   tryCatch(
     eval(expr),

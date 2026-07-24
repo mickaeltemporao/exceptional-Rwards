@@ -14,7 +14,7 @@ Contributions are welcome! Please feel free to submit issues and pull requests t
 
 * **Follow R coding conventions**: We recommend following the [tidyverse style guide](https://style.tidyverse.org/). You can use the `styler` and `lintr` packages to format and check your code.
 * **Add tests for new features**: This project uses `testthat` for unit testing. Please add corresponding tests in the `tests/` directory when introducing new features or fixing bugs.
-* **Update documentation as needed**: We (should) use `roxygen2` for documentation. If you change a function or add a new one, make sure to update the roxygen comments and run `devtools::document()` to update the `man/` folder and `NAMESPACE`.
+* **Update documentation as needed**: Documentation is generated with `roxygen2`. The roxygen comments above each function in `R/` are the single source of truth, and `man/*.Rd` and `NAMESPACE` are generated, not hand-edited. If you change or add a function, update its roxygen comments (`@param`, `@return`, `@examples`, `@export`) and run `devtools::document()` to regenerate the `man/` folder and `NAMESPACE` before committing.
 * **Run checks before committing**: Always run `devtools::check()` locally before opening a pull request to ensure there are no errors, warnings, or notes.
 
 ## Other Ways to Contribute

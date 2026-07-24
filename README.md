@@ -2,7 +2,6 @@
 
 The `Rwards` package turns R errors into opportunities for growth and engagement. Instead of dreading error messages, you earn **XP** for every error you hit and you get a bonus the first time you encounter a new exception. As your XP grows you climb **levels with playful titles**, with a **progress bar** toward the next level and an encouraging message on every error. Your progress is **saved across R sessions**, so the goal is simple: take the anxiety out of mistakes and make learning R supportive and fun for newcomers.
 
-
 ## Getting Started
 
 
@@ -35,3 +34,6 @@ Contributions are very welcome! Whether it's adding new features, expanding tran
 
 The development of some features and tests in this package were accelerated with the assistance of an AI coding assistant.
 
+<!-- badges: start -->
+  [![R-CMD-check](https://github.com/mickaeltemporao/exceptional-Rwards/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mickaeltemporao/exceptional-Rwards/actions/workflows/R-CMD-check.yaml)
+  <!-- badges: end -->

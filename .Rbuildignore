@@ -2,3 +2,8 @@
 ^\.Rproj\.user$
 ^levels\.md$
 ^pr_body\.md$
+^\.github$
+^cran-comments\.md$
+^\.quarto$
+^CONTRIBUTING\.md$
+^README_files$
