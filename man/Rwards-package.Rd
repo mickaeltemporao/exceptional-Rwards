@@ -4,9 +4,9 @@
 \name{Rwards-package}
 \alias{Rwards}
 \alias{Rwards-package}
-\title{Rwards: Turn R Errors into Experience Points and Levels}
+\title{Rwards: Reward Users for Discovering Bugs}
 \description{
-Turns R errors into a game. Each error earns experience points, with a bonus the first time a given error is seen, and accumulated points raise the user through titled levels shown with a progress bar and an encouraging message. Progress is cached across sessions. The goal is to take the anxiety out of error messages and make learning R more engaging for newcomers.
+Transforms the learning experience of a programming language by rewarding users for making mistakes. The goal is to take the anxiety out of error messages and make learning programming more engaging for newcomers. Users earn points for each error encountered, encouraging exploration and experimentation without fear of failure. Progress is cached across sessions.
 }
 \details{
 Attaching the package with \code{library(Rwards)} installs an error handler that

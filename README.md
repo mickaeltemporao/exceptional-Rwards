@@ -37,17 +37,3 @@ The development of some features and tests in this package were accelerated with
 <!-- badges: start -->
   [![R-CMD-check](https://github.com/mickaeltemporao/exceptional-Rwards/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mickaeltemporao/exceptional-Rwards/actions/workflows/R-CMD-check.yaml)
   <!-- badges: end -->
-
-## TODO
-- [x] Remove need to use evaluate_code
-- [x] Change error_tracker to progress tracker or exp (stay positive)
-- [x] Add a sense of progression/level-up as a gratification mechanism (eg. novice, amateur, ..., bugmaster)
-- [x] Keep track of points between sessions? sort of a cache?
-- [x] Show progress until next level?
-- [x] Contributor Guidelines
-- [ ] pride_colour color palette: new color when new error discovered
-- [ ] Add language (en/fr/de/...) option
-- [ ] Remove redundant text in error message.
-- [ ] Put .onLoad inside zzz.R
-- [ ] Minimal doc
-- [ ] mvp for cran sub
